@@ -1,6 +1,7 @@
 //= require angular
 //= require app-wrapper-start
 //= require app
+//= require constants
 //= require controllers
 //= require directives
 //= require filters
