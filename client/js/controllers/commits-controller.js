@@ -3,17 +3,16 @@ app.controller('commitsController',
     $scope.repositories = possibleRepositories;
     $scope.repositoryName = $scope.repositories[0];
 
+    $scope.clearCommits = function () { $scope.commits = []; };
+    $scope.setCommits = function (commits) { $scope.commits = commits; };
+
     $scope.showCommits = function () {
-      $scope.commits = [];
+      $scope.clearCommits();
 
       commitsFactory.byRepositoryNameAndJiraCode(
         $scope.repositoryName,
         $scope.jiraCode
-      ).then(function (response) {
-        response.commits.forEach(function (commit) {
-          $scope.commits.push(commit);
-        });
-      });
+      ).then($scope.setCommits);
     };
   }
 );

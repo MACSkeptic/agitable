@@ -3,7 +3,7 @@ app.factory('commitsFactory', function ($resource) {
   var commitsResource = $resource('/commits/:repositoryName/:jiraCode');
 
   api.byRepositoryNameAndJiraCode = function (repositoryName, jiraCode) {
-    return commitsResource.get({
+    return commitsResource.query({
       jiraCode: jiraCode,
       repositoryName: repositoryName
     }).$promise;
