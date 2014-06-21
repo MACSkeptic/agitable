@@ -1,5 +1,7 @@
 require 'fileutils'
 
+UNICORN_PID_FILE = './tmp/pids/unicorn.pid'
+
 namespace :unicorn do
   task :setup do
     [:tmp, :pid, :log].each do |dir|
@@ -9,25 +11,26 @@ namespace :unicorn do
 end
 
 namespace :server do
-  desc 'starts the server'
-  task(start: [:"unicorn:setup"]) do
-    pid_file = './tmp/pids/unicorn.pid'
+  desc 'logs, tell the tales, the tails in details'
+  task(logs: [:"unicorn:setup"]) do
+    system 'tail -f log/*'
+  end
 
-    puts 'there are already unicorns galloping >_<' or exit 0 if File.exists? pid_file
+  desc 'unicorns++'
+  task(start: [:"unicorn:setup"]) do
+    puts 'there are already unicorns galloping >_<' or exit 0 if File.exists? UNICORN_PID_FILE
 
     puts 'starting the server...'
     `bundle exec unicorn -c ./unicorn.rb -E development -D`
     puts 'server started at http://127.0.0.1:8080'
   end
 
-  desc 'stops the server'
+  desc 'unicorns--'
   task(stop: [:"unicorn:setup"]) do
-    pid_file = './tmp/pids/unicorn.pid'
-
-    puts 'all the unicorns are already dead x_x' or exit 0 unless File.exists? pid_file
+    puts 'all the unicorns are already dead x_x' or exit 0 unless File.exists? UNICORN_PID_FILE
 
     puts 'stoppping the server...'
-    `cat #{pid_file} | xargs kill -QUIT`
+    `cat #{UNICORN_PID_FILE} | xargs kill -QUIT`
     puts 'server stopped'
   end
 end
