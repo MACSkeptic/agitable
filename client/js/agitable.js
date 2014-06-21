@@ -1,0 +1,10 @@
+//= require angular
+//= require app-wrapper-start
+//= require app
+//= require controllers
+//= require directives
+//= require filters
+//= require factories
+//= require services
+//= require config
+//= require app-wrapper-end

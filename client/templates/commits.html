@@ -1,0 +1,33 @@
+<fieldset>
+  <legend><h1>agitable</h1></legend>
+  <form ng-submit="showCommits()">
+    <select ng-model="repositoryName">
+      <option ng-repeat="repository in repositories">{{repository}}</option>
+    </select>
+    <input id="jira-input" type="text"
+      ng-model="jiraCode"
+      auto-focus
+      placeholder="JIRA (e.g.: AUC-1060)" />
+    <input type="submit" value="show commits"/>
+  </form>
+</fieldset>
+<table ng-show="commits.length">
+  <thead>
+    <tr class="commits-table-header">
+      <th class="hash-column">hash</th>
+      <th class="message-column">message</th>
+      <th class="author-column">author</th>
+      <th class="date-column">date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="commit in commits" class="commit-row">
+      <td class="hash-column-content hash-column">{{commit.hash}}</td>
+      <td class="message-column"
+        ng-bind-html="commit.message|highlight:this.jiraCode">
+      </td>
+      <td class="author-column-content author-column">{{commit.author}}</td>
+      <td class="date-column-content date-column">{{commit.date}}</td>
+    </tr>
+  </tbody>
+</table>

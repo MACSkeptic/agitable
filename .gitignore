@@ -1,0 +1,28 @@
+# OS files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+# VI swap files
+*.swp*
+*.swo*
+
+# node js packages
+/node_modules
+
+# bower packages
+/bower_components
+
+# local temporary folder
+/temp
+
+# templates
+.compiled.*
+desktop.ini
+
+# current version pointers
+changed_files.txt
+current-dev-revision.txt
+current-revision.txt
+frontend-revision.txt
