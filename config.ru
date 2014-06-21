@@ -1,5 +1,6 @@
 require './lib/app'
 require 'sprockets'
+require 'sprockets-sass'
 require 'sass'
 
 map '/' do
@@ -7,20 +8,20 @@ map '/' do
 end
 
 map '/js' do
-  asset_pipeline = Sprockets::Environment.new
-  asset_pipeline.append_path 'client/js'
-  run asset_pipeline
+  js_pipeline = Sprockets::Environment.new
+  js_pipeline.append_path 'client/js'
+  run js_pipeline
 end
 
 map '/css' do
-  asset_pipeline = Sprockets::Environment.new
-  asset_pipeline.append_path 'client/css'
-  asset_pipeline.append_path 'client/scss'
-  run asset_pipeline
+  css_pipeline = Sprockets::Environment.new
+  css_pipeline.append_path 'client/css'
+  css_pipeline.append_path 'client/scss'
+  run css_pipeline
 end
 
 map '/templates' do
-  asset_pipeline = Sprockets::Environment.new
-  asset_pipeline.append_path 'client/templates'
-  run asset_pipeline
+  templates_pipeline = Sprockets::Environment.new
+  templates_pipeline.append_path 'client/templates'
+  run templates_pipeline
 end
