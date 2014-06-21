@@ -11,7 +11,7 @@ namespace :unicorn do
 end
 
 namespace :server do
-  desc 'logs, tell the tales, the tails in details'
+  desc 'catalogs the tales, the tails in details'
   task(logs: [:"unicorn:setup"]) do
     system 'tail -f log/*'
   end
