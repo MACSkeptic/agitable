@@ -16,6 +16,9 @@ Thumbs.db
 
 # local temporary folder
 /temp
+/tmp
+/log
+/pid
 
 # templates
 .compiled.*

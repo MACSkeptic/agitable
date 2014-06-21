@@ -12,6 +12,8 @@ GEM
     hike (1.2.3)
     i18n (0.6.9)
     json (1.8.1)
+    kgio (2.9.2)
+    magic_encoding (0.0.2)
     method_source (0.8.2)
     minitest (5.3.4)
     multi_json (1.10.1)
@@ -22,6 +24,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
+    raindrops (0.13.0)
+    rake (10.3.2)
     sass (3.2.19)
     sinatra (1.4.5)
       rack (~> 1.4)
@@ -37,6 +41,10 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
+    unicorn (4.8.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -44,7 +52,10 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   hashie
+  magic_encoding
   pry
+  rake
   sass
   sinatra
   sprockets
+  unicorn
