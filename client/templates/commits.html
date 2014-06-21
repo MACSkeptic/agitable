@@ -1,6 +1,6 @@
 <fieldset>
   <legend><h1>agitable</h1></legend>
-  <form ng-submit="showCommits()">
+  <form action="{{'#/commits/' + repositoryName + '/' + jiraCode}}">
     <select ng-model="repositoryName">
       <option ng-repeat="repository in repositories">{{repository}}</option>
     </select>

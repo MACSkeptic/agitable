@@ -8,6 +8,8 @@ Thumbs.db
 *.swp*
 *.swo*
 
+/.sass-cache/**/*
+
 # node js packages
 /node_modules
 

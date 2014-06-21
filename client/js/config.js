@@ -1,6 +1,6 @@
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider.when(
-    '/commits', 
+    '/commits/:repositoryName?/:jiraCode?', 
     {
       templateUrl: '/templates/commits.html',
       controller: 'commitsController'

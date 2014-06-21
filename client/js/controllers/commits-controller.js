@@ -1,10 +1,15 @@
 app.controller('commitsController',
-  function ($scope, $resource, commitsFactory, possibleRepositories) {
+  function ($scope, $resource, $routeParams, $location, commitsFactory, possibleRepositories) {
     $scope.repositories = possibleRepositories;
-    $scope.repositoryName = $scope.repositories[0];
+    $scope.repositoryName = $routeParams.repositoryName;
+    $scope.jiraCode = $routeParams.jiraCode;
 
     $scope.clearCommits = function () { $scope.commits = []; };
     $scope.setCommits = function (commits) { $scope.commits = commits; };
+
+    $scope.goTo = function () {
+      $location.path('/commits/' + $scope.repositoryName + '/' + $scope.jiraCode);
+    };
 
     $scope.showCommits = function () {
       $scope.clearCommits();
@@ -14,5 +19,7 @@ app.controller('commitsController',
         $scope.jiraCode
       ).then($scope.setCommits);
     };
+
+    $scope.repositoryName && $scope.jiraCode && $scope.showCommits();
   }
 );
