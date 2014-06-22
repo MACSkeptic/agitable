@@ -9,6 +9,19 @@ body, body *, * {
 @-webkit-keyframes typing { from { width: 0; } }
 @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
 
+a {
+  color: yellow;
+  text-decoration: none;
+
+  &:visited {
+    color: darken(yellow, 20%);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .highlight {
   color: orange;
   font-weight: bolder;

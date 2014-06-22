@@ -6,8 +6,8 @@ require_relative '../git'
 
 module Agitable
   module Controllers
-    class BranchesController < Sinatra::Base
-      get '/branches/:repository/:commit' do
+    class CommitController < Sinatra::Base
+      get '/commit/:repository/:commit' do
         repository_name = params[:repository]
         repository = Agitable::Git::Repository.new("../#{repository_name}")
 

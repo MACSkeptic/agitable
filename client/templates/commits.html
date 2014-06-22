@@ -1,9 +1,7 @@
 <fieldset>
   <legend><h1>agitable</h1></legend>
   <form action="{{'#/commits/' + repositoryName + '/' + jiraCode}}">
-    <select ng-model="repositoryName">
-      <option ng-repeat="repository in repositories">{{repository}}</option>
-    </select>
+    <repository-selector></repository-selector>
     <input id="jira-input" type="text"
       ng-model="jiraCode"
       auto-focus
@@ -22,7 +20,9 @@
   </thead>
   <tbody>
     <tr ng-repeat="commit in commits" class="commit-row">
-      <td class="hash-column-content hash-column">{{commit.hash}}</td>
+      <td class="hash-column-content hash-column">
+        <link-for-commit></link-for-commit>
+      </td>
       <td class="message-column"
         ng-bind-html="commit.message|highlight:this.jiraCode">
       </td>

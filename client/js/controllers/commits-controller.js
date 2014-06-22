@@ -1,6 +1,5 @@
 app.controller('commitsController',
-  function ($scope, $resource, $routeParams, $location, commitsFactory, possibleRepositories) {
-    $scope.repositories = possibleRepositories;
+  function ($scope, $routeParams, $location, commitsFactory) {
     $scope.repositoryName = $routeParams.repositoryName;
     $scope.jiraCode = $routeParams.jiraCode;
 

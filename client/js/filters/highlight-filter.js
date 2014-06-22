@@ -1,8 +1,6 @@
-app.directive('autoFocus', function ($timeout) {
-  return {
-    restrict: 'AC',
-    link: function(_scope, _element) {
-      $timeout(function () { _element[0].focus(); }, 0);
-    }
+app.filter('highlight', function ($sce) {
+  return function (text, keyword) {
+    return $sce.trustAsHtml(text.replace(keyword,
+      '<span class="highlight">' + keyword + '</span>'));
   };
 });

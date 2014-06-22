@@ -6,7 +6,7 @@ require_relative 'controllers'
 module Agitable
   class App < Sinatra::Base
     use Controllers::CommitsController
-    use Controllers::BranchesController
+    use Controllers::CommitController
     use Controllers::HomeController
 
     set :default_encoding, 'UTF-8'
