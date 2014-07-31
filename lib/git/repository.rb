@@ -8,6 +8,7 @@ module Agitable
     class Repository < ::Agitable::Git::Base
       include ::Agitable::Git::Branch
       include ::Agitable::Git::Log
+      include ::Agitable::Git::Rebase
     end
   end
 end
