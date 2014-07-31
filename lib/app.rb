@@ -7,6 +7,7 @@ module Agitable
   class App < Sinatra::Base
     use Controllers::CommitsController
     use Controllers::CommitController
+    use Controllers::RebaseController
     use Controllers::HomeController
 
     set :default_encoding, 'UTF-8'
