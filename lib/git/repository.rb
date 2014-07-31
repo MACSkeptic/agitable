@@ -2,6 +2,7 @@
 require_relative 'base'
 require_relative 'log'
 require_relative 'branch'
+require_relative 'rebase'
 
 module Agitable
   module Git
