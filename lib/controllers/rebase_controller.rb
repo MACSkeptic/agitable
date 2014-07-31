@@ -7,7 +7,7 @@ require_relative '../git'
 module Agitable
   module Controllers
     class RebaseController < Sinatra::Base
-      get '/rebase/:repository/from/:from_branch/to/:to_branch' do
+      post '/rebase/:repository/from/:from_branch/to/:to_branch' do
         repository_name = params[:repository]
         repository = Agitable::Git::Repository.new("../#{repository_name}")
 
